@@ -12,6 +12,8 @@ import java.util.TreeMap;
 import org.json.*;
 
 public class Meme {
+	private HashMap<String, Integer> Meme;
+	private TreeMap<String, Integer> SortedMeme;
 	//Constructor
 	public Meme() {
 		this.Meme = new HashMap<String, Integer>();
@@ -27,6 +29,7 @@ public class Meme {
 		}
 		JSONObject obj = new JSONObject(content);
 		JSONArray arr = obj.getJSONArray("memes");
+		//add 0 as default score
 		for (int i = 0; i < arr.length(); i++) {
 			String memestring = arr.getJSONObject(i).getString("memeString");
 			this.Meme.put(memestring, 0);
@@ -76,12 +79,9 @@ public class Meme {
 		} catch (IOException e) {
 
 		}
-
 	}
-
-	private HashMap<String, Integer> Meme;
-	private TreeMap<String, Integer> SortedMeme;
-
+	
+    //main method
 	public static void main(String[] args) throws JSONException {
 		Meme a = new Meme();
 		a.ReadMemes();
