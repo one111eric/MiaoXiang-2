@@ -13,8 +13,8 @@ import java.util.TreeMap;
 import org.json.*;
 
 public class Meme {
-	private HashMap<String, Integer> Meme;
-	private TreeMap<String, Integer> SortedMeme;
+	public HashMap<String, Integer> Meme;
+	public TreeMap<String, Integer> SortedMeme;
 	//Constructor
 	public Meme() {
 		this.Meme = new HashMap<String, Integer>();
@@ -43,7 +43,7 @@ public class Meme {
    //Score Memes with random number
 	public void ScoreMemes() {
 		Random random = new Random();
-
+  
 		for (Map.Entry<String, Integer> entry : SortedMeme.entrySet()) {
 			int i = random.nextInt(10) + 1;
 			entry.setValue(i);
